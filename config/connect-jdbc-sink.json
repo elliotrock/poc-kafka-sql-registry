@@ -1,0 +1,20 @@
+{
+    "name": "jdbc-sink-connector",
+    "config": {
+      "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+      "connection.url": "jdbc:mysql://localhost:3306/postgres",
+      "connection.user": "my_user",
+      "connection.password": "example",
+      "connection.loginTimeout": "10",
+      "topics": "my_topic",
+      "table.name.format": "${topic}",
+      "insert.mode": "upsert",
+      "pk.mode": "record_key",
+      "pk.fields": "my_key_field",
+      "auto.create": true,
+      "auto.evolve": true,
+      "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+      "value.converter.schemas.enable": "false"      
+    }
+  }
+  
