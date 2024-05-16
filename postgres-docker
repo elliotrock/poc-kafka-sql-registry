@@ -1,0 +1,5 @@
+FROM postgres
+
+# Create the directory for PostgreSQL JDBC driver
+RUN mkdir -p /usr/share/java/
+COPY ./drivers/postgresql-42.7.3.jar /usr/share/java/postgresql-42.7.3.jar

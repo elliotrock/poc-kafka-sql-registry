@@ -13,6 +13,11 @@ if ! command -v makefile
 then brew install docker
 fi
 
+# postgres
+if ! command -v postgresql 
+then brew install postgresql
+fi
+
 if ! command -v jq
 then brew install jq
 fi 

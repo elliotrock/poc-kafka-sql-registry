@@ -2,19 +2,18 @@
     "name": "jdbc-sink-connector",
     "config": {
       "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
-      "connection.url": "jdbc:mysql://localhost:3306/postgres",
-      "connection.user": "my_user",
+      "connection.url": "jdbc:postgresql://db:5432/totebets",
+      "connection.user": "postgres",
       "connection.password": "example",
       "connection.loginTimeout": "10",
-      "topics": "my_topic",
+      "topics": "tote_win_bets,tote_win_bet_race_runners_odds",
       "table.name.format": "${topic}",
-      "insert.mode": "upsert",
-      "pk.mode": "record_key",
-      "pk.fields": "my_key_field",
+      "insert.mode": "insert",
       "auto.create": true,
       "auto.evolve": true,
-      "value.converter": "org.apache.kafka.connect.json.JsonConverter",
-      "value.converter.schemas.enable": "false"      
+      "value.converter.schema.registry.url": "http://schema-registry:8081",
+      "value.converter.schemas.enable": "false",
+      "rest.advertised.host.name": "connect"       
     }
   }
   
