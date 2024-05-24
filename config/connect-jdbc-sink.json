@@ -6,7 +6,7 @@
       "connection.user": "postgres",
       "connection.password": "example",
       "connection.loginTimeout": "10",
-      "topics": "tote_win_bets,tote_win_bet_race_runners_odds",
+      "topics": "tote_win_bet_race_runners_odds",
       "table.name.format": "${topic}",
       "insert.mode": "insert",
       "auto.create": true,
