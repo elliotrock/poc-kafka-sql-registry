@@ -8,14 +8,14 @@ curl -X POST \
         "value": {
           "RUNNER_ID": {"int": 1},
           "RACE_ID": {"int": 0},
-          "AMOUNT": {"double": 25.0}
+          "AMOUNT": {"double": 0.0}
         }
       },
       {
         "value": {
           "RUNNER_ID": {"int": 2},
           "RACE_ID": {"int": 0},
-          "AMOUNT": {"double": 50.0}
+          "AMOUNT": {"double": 0.0}
         }
       }
     ]

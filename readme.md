@@ -36,7 +36,7 @@ To start the ksqlDB CLI. Open a new terminal window for this.
 
 Once you have build the streams and tables a nice way of running a demo is to run a pull query in `ksqldb-cli` on the final stream `tote_win_bet_race_runners_odds` like;
 
-`SELECT * FROM tote_win_bet_race_runners_odds WHERE race_id = 0 EMIT CHANGES;` 
+`SELECT * FROM tote_win_bet_race_runners_odds WHERE race_id = 0 EMIT CHANGES` 
 
 This will continously print to console changes to that stream.
 

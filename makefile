@@ -26,9 +26,9 @@ start:
 stop: 
 	docker-compose stop
 
-.PHONY: kill
-kill: 
-	docker-compose kill
+.PHONY: down
+down: 
+	docker-compose down
 
 .PHONY: prune
 prune: 

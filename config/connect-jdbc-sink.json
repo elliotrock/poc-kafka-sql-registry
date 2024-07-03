@@ -6,7 +6,7 @@
       "connection.user": "postgres",
       "connection.password": "example",
       "connection.loginTimeout": "10",
-      "topics": "tote_win_bet_race_runners_odds",
+      "topics": "tote_win_bet_race_runners_odds,tote_win_bets",
       "table.name.format": "${topic}",
       "insert.mode": "insert",
       "auto.create": true,
@@ -16,4 +16,4 @@
       "rest.advertised.host.name": "connect"       
     }
   }
-  
+   
