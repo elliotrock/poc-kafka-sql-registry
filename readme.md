@@ -1,6 +1,8 @@
 # Kafka JDBC SQL connector POC
 
-Eventsource pattern used to form a tote pool. With a JDBC stream connector to demostrate how to auto create and insert data sourced up stream from Confluence Kafka Schema Registry. So we create a first class citizen and method to introduce data consistency. This is to build strong information architecture into the design of your data engineering.  
+Eventsource pattern used to form a tote pool. With a JDBC stream connector to demostrate how to auto create and insert data sourced up stream from Confluence Kafka Schema Registry. So we create a first class citizen and method to introduce data consistency. This is to build strong information architecture into the design of your data engineering. It removes the need for any integration layer with data mapping.  
+
+[![schema registry across connectors and database](/Schema_registry.png)]
 
 Please refer to this repo for explaination of the other details; [Tote pool poc] https://github.com/elliotrock/poc-kafka-totes-pool
 
@@ -28,10 +30,15 @@ To install any missing dependencies. Including makefile.
 2. `make start`
 To run the docker containers.
 
-3. `make build` | `bash build.sh`
+3. `make build`
 To build the streams and tables, then the JDBC connector configuration. The makefile has the permissions added.
 
-4. Optional  `make cli`
+4. `make play`
+To POST the bets to the rest-proxy. There are two batches of bets here to demostrate how kafka works when it batches a chunk of events into a stream.
+
+6. In your browser Vview the postgres database via [adminer]  http://localhost:8080/  Password: `example` User: `postgres`
+
+5. Optional  `make cli`
 To start the ksqlDB CLI. Open a new terminal window for this. 
 
 Once you have build the streams and tables a nice way of running a demo is to run a pull query in `ksqldb-cli` on the final stream `tote_win_bet_race_runners_odds` like;
@@ -40,22 +47,19 @@ Once you have build the streams and tables a nice way of running a demo is to ru
 
 This will continously print to console changes to that stream.
 
-5. Sending bets using the REST Proxy. The bash script below requires the schema id. If you start from scratch it should be `1`. 
+`SELECT * FROM tote_win_bet_race_runners_odds WHERE race_id = 0`
 
-`bash post_bets.sh`
-Use this to insert a couple of bets into `tote_win_bets`.
+Will display that stream.
 
-`bash post_bets_large.sh`
-Use this to insert an array of bets into `tote_win_bets`.
-
-6. View the postgres database via [adminer]  http://localhost:8080/
 
 **Problem Shooting:** Run `bash utilities/schema_query.sh` to get the schema_value id and edit the above bash scripts.
+
+Sending bets using the REST Proxy. The bash script below requires the `value_schema_id`. If you start from scratch it should be `1`.  `bash post_bets.sh`,  `bash post_bets_large.sh`
 
 
 ### Kill, prune and clear the containers 
 
-`make kill`
+`make down`
 To kill the running docker
 
 `make prune`
