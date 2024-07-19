@@ -4,31 +4,30 @@ cli:
 
 .PHONY: play
 play:
-	chmod u+x play.sh
-	bash play.sh
+	chmod u+x post_bets.sh
+	chmod u+x post_bets_large.sh
+	bash post_bets.sh
+	@sleep 2
+	bash post_bets_large.sh
 
 .PHONY: build
 build:
 	chmod u+x build.sh
 	bash build.sh
-
-.PHONY: connectors
-connectors:
 	chmod u+x connectors.sh
 	bash connectors.sh
 
 .PHONY: start
 start: 
-	# chmod o + r drivers/postresql-47.7.3.jar
-	docker-compose up
+	docker compose up
 
 .PHONY: stop
 stop: 
-	docker-compose stop
+	docker compose stop
 
 .PHONY: down
 down: 
-	docker-compose down
+	docker compose down
 
 .PHONY: prune
 prune: 
