@@ -1,6 +1,6 @@
 # Kafka JDBC SQL connector POC
 
-Eventsource pattern used to form a tote pool. With a JDBC stream connector to demonstrate how to auto create and insert data sinks down stream from Confluence Kafka Schema Registry - creating a first class citizen and method to improve data consistenc, building strong information architecture into the design of your data engineering. It removes the need for any integration layer with entity mapping.  
+Eventsource pattern used to form a tote pool. With a JDBC stream connector to demonstrate how to auto create and insert data sinks down stream from Confluence Kafka Schema Registry - creating a first class citizen and method to improve data consistency, building strong information architecture into the design of your data engineering. It removes the need for any integration layer with entity mapping.  
 
 ![schema registry across connectors and database](/Schema_registry.png)
 
